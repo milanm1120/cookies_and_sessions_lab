@@ -1,0 +1,23 @@
+<ul>  
+
+#calling the cart session, does not need to be an instance variable.
+#iterating through to obtain and display each product.
+
+  <%= cart.each do |product| %>
+    <li><%= product %></li>
+  <% end %>
+</ul>
+
+#creates a form to add items to the cart
+#can use form_tag as we are not creating new items
+#controller/action/method to direct the url params to the right place
+
+<%= form_tag (
+   {controller: 'products',
+    action: 'add',
+    method: 'post'}
+    ) do %>
+
+  <input name=product>
+  <input type=submit value='add to cart'>
+<% end %>
